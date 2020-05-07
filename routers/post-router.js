@@ -14,7 +14,8 @@ router.post('/', (req, res) => {
             res.status(201).json(posts)
         })
     })
-    .catch(err => {
+    .catch(error => {
+        console.log(error);
         res.status(500).json({ error: "There was an error while saving the post to the database" })
     })
 })
@@ -36,8 +37,8 @@ router.post('/:post_id/comments', (req, res) => {
             }
         })
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({ error: "There was an error while saving the comment to the database" })
     })
 })
@@ -47,8 +48,8 @@ router.get('/', (req, res) => {
     .then(posts => {
         res.status(200).json(posts)
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({ error: "The posts information could not be retrieved." })
     })
 })
@@ -63,8 +64,8 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: "The post with the specified ID does not exist." })
         }
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({ error: "The post information could not be retrieved." })
     })
 })
@@ -79,8 +80,8 @@ router.get('/:id/comments', (req, res) => {
             res.status(404).json({ message: "The post with the specified ID does not exist." })
         }
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({ error: "The comments information could not be retrieved." })
     })
 })
@@ -95,8 +96,8 @@ router.delete('/:id', (req, res) => {
             res.status(404).json({ errorMessage: "The post with the specified ID does not exist"})
         }
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({errorMessage: "The post could not be removed" })
     })
 })
@@ -115,8 +116,8 @@ router.put('/:id', (req, res) => {
             res.status(404).json({ message: "The post with the specified ID does not exist." })
         }
     })
-    .catch(err => {
-        console.log(err)
+    .catch(error => {
+        console.log(error)
         res.status(500).json({ error: "The posts information could not be retrieved." })
     })
 })
